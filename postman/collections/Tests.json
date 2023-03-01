@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "0535bf1e-34d6-4b45-b6bc-493da13798e1",
+		"name": "Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "18917882-0535bf1e-34d6-4b45-b6bc-493da13798e1"
+	},
+	"item": [
+		{
+			"name": "https://blinklist.com/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf09a894-af5d-4c7a-ae03-e6c4a40ad071",
+						"exec": [
+							"const $ = cheerio.load(pm.response.text());\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Person is Jane\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.name).to.eql(\"Jane\");\r",
+							"  pm.expect(responseJson.age).to.eql(23);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is text/html; charset=UTF-8\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html; charset=UTF-8');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "934fb045-efdd-47ae-a587-59e0d939a991",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://blinklist.com/",
+					"protocol": "https",
+					"host": [
+						"blinklist",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
