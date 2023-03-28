@@ -79,6 +79,4 @@ public class ShopController {
   {
     return sessionStorage.GetData(session).GetProductsCount().toString();
   }
-    }
-  }
 }

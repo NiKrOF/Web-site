@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringBootStudyShopThymeleaf
 {
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootStudyShopThymeleaf.class, args);
-	}
+	SpringApplication.run(SpringBootStudyShopThymeleaf.class, args);
+}
 }
