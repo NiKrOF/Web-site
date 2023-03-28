@@ -1,54 +1,172 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharOnov</title>
-    <link rel="stylesheet" href="mystyle.css">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="css/price-range.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/responsive.css" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
+
 <body>
-    <div class="city" id="textCity"></div>
-    <div class="countOfItems" id="cntOfItems">Count: 0</div>
-    <button class="changeCityButton" onclick="changeCity()">Change city</button>
-    <div class="header">
-    <div class="firstSort">
-        <select id="firstSelect">
-            <option disabled>Choose 1</option>
-            <option value="By price">By price</option>
-            <option value="By name">By name</option>
-        </select>
-    </div>
-    <div class="secondSort">
-        <select id="secondSelect">
-            <option disabled>Choose 2</option>
-            <option value="Increase">Increase</option>
-            <option value="Decrease">Decrease</option>
-        </select>
-    </div>
-    <div class="filter">
-        <input type="text" id="filter" placeholder="Filter">
-    </div>
-    <div class="sortButton">
-        <button onclick="main()">Sort</button>
-    </div>
-</div>
+	<header id="header">
 
+		<div class="header-middle">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<script>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="index.html" class="active">Home</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 padding-right">
+					<div class="features_items">
+						<h2 class="title text-center">Features Items</h2>
+					</div>
+						<div th:if="${products.size() > 0}" class="table">
+    					<table border="1">
+        					<tr>
+								<th>Description</th>
+            					<th>Price</th>
+        					</tr>
+        					<tr th:each="product : ${products}" th:attr="id=${product.id}">
+            					<td scope="row">[[${product.name}]]</td>
+								<td>[[${product.price}]]</td>
+            					<td><button onclick="addItem(${product.id})">+</button></td>
+        					</tr>
+    					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer">
+
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quock Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">T-Shirt</a></li>
+								<li><a href="#">Mens</a></li>
+								<li><a href="#">Womens</a></li>
+								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+    <script>
     function getCookie(name) {
         let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
-
     if (getCookie('city') === undefined){
         let getCity = prompt('Введите ваш город').toString();
         document.cookie = 'city=' + getCity;
         document.getElementById('textCity').innerHTML = '<p>'+ 'Ваш город – ' + getCookie('city').toString() + '<p>';
     }
-
-
-
 </script>
 </body>
 </html>

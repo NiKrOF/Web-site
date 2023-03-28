@@ -13,4 +13,13 @@ import javax.persistence.*;
 @Setter
 public class Product
 {
+    @Id
+  @Column(name = "id", nullable = false)
+  private Integer id;
+
+  @Column(name = "name")
+  private String name;
+
+  @Column(name = "price")
+  private Integer price;
 }

@@ -38,6 +38,47 @@ public class ShopController {
         sortByName = true;
 
       List<Product> products = null;
+
+      if(sortByName)
+      {
+        if(sortAscending)
+          products = productRepo.findByNameContainingIgnoreCaseOrderByNameAsc(filterBy);
+        else
+          products = productRepo.findByNameContainingIgnoreCaseOrderByNameDesc(filterBy);
+      }
+      else
+      {
+        if(sortAscending)
+          products = productRepo.findByNameContainingIgnoreCaseOrderByPriceAsc(filterBy);
+        else
+          products = productRepo.findByNameContainingIgnoreCaseOrderByPriceDesc(filterBy);
+      }
+
+      model.addAttribute("products", products);
+    }
+    catch (Exception e)
+    {
+      model.addAttribute("message", e.getMessage());
+    }
+
+    return "products";
+  }
+
+  @CrossOrigin(origins = "*")
+  @PostMapping("/addToWishList")
+  @ResponseBody
+  public void addProduct(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
+  {
+    sessionStorage.GetData(session).AddProduct(productId);
+  }
+
+  @CrossOrigin(origins = "*")
+  @GetMapping("/wishListCnt")
+  @ResponseBody
+  public String getProductsCnt(HttpSession session)
+  {
+    return sessionStorage.GetData(session).GetProductsCount().toString();
+  }
     }
   }
 }
