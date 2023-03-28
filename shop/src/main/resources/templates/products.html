@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharOnov</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="city" id="textCity"></div>
+    <div class="countOfItems" id="cntOfItems">Count: 0</div>
+    <button class="changeCityButton" onclick="changeCity()">Change city</button>
+    <div class="header">
+    <div class="firstSort">
+        <select id="firstSelect">
+            <option disabled>Choose 1</option>
+            <option value="By price">By price</option>
+            <option value="By name">By name</option>
+        </select>
+    </div>
+    <div class="secondSort">
+        <select id="secondSelect">
+            <option disabled>Choose 2</option>
+            <option value="Increase">Increase</option>
+            <option value="Decrease">Decrease</option>
+        </select>
+    </div>
+    <div class="filter">
+        <input type="text" id="filter" placeholder="Filter">
+    </div>
+    <div class="sortButton">
+        <button onclick="main()">Sort</button>
+    </div>
+</div>
+
+
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    if (getCookie('city') === undefined){
+        let getCity = prompt('Введите ваш город').toString();
+        document.cookie = 'city=' + getCity;
+        document.getElementById('textCity').innerHTML = '<p>'+ 'Ваш город – ' + getCookie('city').toString() + '<p>';
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+        .header{
+            padding-top: 50px;
+        }
+        .countOfItems{
+            float: right;
+        }
+
+        .firstSort{
+            float:left;
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .secondSort{
+            float:inherit;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .sortButton{
+            padding: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .table{
+            margin-left: 30px;
+            margin-right: auto;
+        }
+        .filter{
+            padding-left: 30px;
+            padding-top: 30px;
+            height: 321px;
+        }
+        .city{
+            position:fixed;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 30px;
+        }
+        .changeCityButton{
+            margin-left: 200px;
+        }
