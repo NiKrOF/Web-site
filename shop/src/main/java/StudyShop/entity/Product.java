@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Setter
 public class Product
 {
-    @Id
+  @Id
   @Column(name = "id", nullable = false)
   private Integer id;
 

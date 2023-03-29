@@ -9,13 +9,13 @@ import java.util.Map;
 @Component
 public class SessionStorage
 {
-    private Map<String, WishList> SessionsMap;
+    private Map<String, Cart> SessionsMap;
     public SessionStorage() {SessionsMap = new HashMap<>();}
-    public WishList GetData(HttpSession session)
+    public Cart GetData(HttpSession session)
     {
         String sessId = session.getId();
-        WishList data = SessionsMap.get(sessId);
-        if(data == null){data = new WishList();SessionsMap.put(sessId, data);}
+        Cart data = SessionsMap.get(sessId);
+        if(data == null){data = new Cart();SessionsMap.put(sessId, data);}
         return data;
     }
 }

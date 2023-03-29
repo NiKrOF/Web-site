@@ -65,7 +65,7 @@ public class ShopController {
   }
 
   @CrossOrigin(origins = "*")
-  @PostMapping("/addToWishList")
+  @PostMapping("/AddCart")
   @ResponseBody
   public void addProduct(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
   {
@@ -73,7 +73,7 @@ public class ShopController {
   }
 
   @CrossOrigin(origins = "*")
-  @GetMapping("/wishListCnt")
+  @GetMapping("/CartCnt")
   @ResponseBody
   public String getProductsCnt(HttpSession session)
   {
