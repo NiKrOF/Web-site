@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class ShopController {
+public class ShopController
+{
   @Autowired
   private ProductRepoJpa productRepo;
 
@@ -22,19 +23,21 @@ public class ShopController {
 
   @GetMapping("/shop")
   public String getProducts(Model model
-          , @RequestParam(required = false, name = "filter") String filterBy
-          , @RequestParam(required = false, name = "sort") String sortBy
-          , @RequestParam(required = false, name = "direction") String sortDir) {
-    try {
-      if (filterBy == null)
+          , @RequestParam(required = false, name = "filter")      String filterBy
+          , @RequestParam(required = false, name = "sort")        String sortBy
+          , @RequestParam(required = false, name = "direction")   String sortDir)
+  {
+    try
+    {
+      if(filterBy == null)
         filterBy = "";
 
       boolean sortAscending = false;
-      if (sortDir == null || sortDir.equals("asc"))
-        sortAscending = true;
+      if(sortDir == null || sortDir.equals("asc"))
+         sortAscending = true;
 
       boolean sortByName = false;
-      if (sortBy == null || sortBy.equals("name"))
+      if(sortBy == null || sortBy.equals("name"))
         sortByName = true;
 
       List<Product> products = null;
@@ -65,7 +68,7 @@ public class ShopController {
   }
 
   @CrossOrigin(origins = "*")
-  @PostMapping("/AddCart")
+  @PostMapping("/addToWishList")
   @ResponseBody
   public void addProduct(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
   {
@@ -73,7 +76,7 @@ public class ShopController {
   }
 
   @CrossOrigin(origins = "*")
-  @GetMapping("/CartCnt")
+  @GetMapping("/wishListCnt")
   @ResponseBody
   public String getProductsCnt(HttpSession session)
   {

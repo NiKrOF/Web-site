@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS t_products;
 
-CREATE TABLE t_products
+CREATE TABLE product
 (
     id integer NOT NULL,
     name character varying(128) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE t_products
     CONSTRAINT product_pkey PRIMARY KEY (id)
 );
 
-INSERT INTO t_products
+INSERT INTO product
 VALUES
 (1, 'Телефон', 12500),
 (2, 'Компьютер', 98000),
