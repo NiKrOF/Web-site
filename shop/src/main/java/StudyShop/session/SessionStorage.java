@@ -10,12 +10,22 @@ import java.util.Map;
 public class SessionStorage
 {
     private Map<String, Cart> SessionsMap;
-    public SessionStorage() {SessionsMap = new HashMap<>();}
-    public Cart GetData(HttpSession session)
+
+    public SessionStorage()
     {
-        String sessId = session.getId();
-        Cart data = SessionsMap.get(sessId);
-        if(data == null){data = new Cart();SessionsMap.put(sessId, data);}
+        SessionsMap = new HashMap<>();
+    }
+
+    public Cart GetData(String sessionId)
+    {
+        Cart data = SessionsMap.get(sessionId);
+
+        if(data == null)
+        {
+            data = new Cart();
+            SessionsMap.put(sessionId, data);
+        }
+
         return data;
     }
 }

@@ -13,4 +13,5 @@ public interface ProductRepoJpa extends JpaRepository<Product, Integer>
     List<Product> findByNameContainingIgnoreCaseOrderByPriceDesc(String strToSearch);
     List<Product> findByNameContainingIgnoreCaseOrderByNameAsc(String strToSearch);
     List<Product> findByNameContainingIgnoreCaseOrderByNameDesc(String strToSearch);
+    Product getById(Integer id);
 }

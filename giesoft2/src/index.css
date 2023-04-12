@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header{
+  position: inherit;
+}
+
+header .shop-cart-button{
+  float: right;
+  cursor: pointer;
+  transition: color, transform, 500ms ease;
+  font-size: large;
+}
+
+.shop-cart-button:hover,
+.shop-cart-button:active{
+  color: darkblue;
+  transform: scale(1.5);
+}
+
+header .shop-cart{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 450px;
+  background: #fafafa;
+  -webkit-box-shadow: 4px 5px 15px -7px #606060;
+  box-shadow: 4px 5px 15px -7px #606060;
+  z-index: 1000;
+  padding: 20px;
+}
+
+header .shop-cart .item .delete-icon{
+  color: #ca5252;
+  float: right;
+  position: relative;
+  cursor: pointer;
+  top: 5px;
+  transition: color, transform, 500ms ease;
+}
+
+header .shop-cart .item .delete-icon:hover{
+  color: #d83030;
+  transform: scale(1.5);
+}
+
+header .shop-cart .summa{
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header .shop-cart .empty h2{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .shop-cart .item{
+  float: left;
+  margin-bottom: 20px;
+
+}
+
+header .shop-cart .item img{
+  width: 70px;
+  float: left;
+  margin-right: 10px;
+}
+
+header .shop-cart .item h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+header .shop-cart .item p{
+  color: #797979;
+  font-weight: 600;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wrapper {
+  height: 1240px;
+}
+
+footer{
+  text-align: center;
+}
+
+.logo_name{
+  font-size: 45px;
+  display: flex;
+}
+
+.header_presentation{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav>ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  float: right;
+  padding: 10px;
+  margin: 10px;
+}
+
+nav>ul>a{
+  text-decoration: none;
+  text-decoration-color: none;
+  padding: 0 10px;
+}
+
+nav>ul>a>li{
+  color: black;
+  transition: opacity 2s ease;
+}
+
+nav>ul>a>li:hover{
+  opacity: 0.9;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 350px;
+  margin: 15px;
+}
+
+.item>img{
+  height: auto;
+  width: 350px;
+}
+
+main>.item{
+  background: #fafafa;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.2s ease;
+}
+
+main{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+main b{
+  color: darkblue;
+}
+
+main .AddCartButton{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: blue;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+main .AddCartButton:hover{
+  transform: scale(1.15) translateY(-5px);
+}
+
+footer{
+  background-color: darkgrey;
+  height: 240px;
+  text-align: center;
+}
+
+main>.item:hover{
+  transform: scale(1.05);
+}
+
+footer>p{
+  padding-top: 110px;
+}

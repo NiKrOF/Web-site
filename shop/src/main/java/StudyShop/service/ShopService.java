@@ -26,23 +26,6 @@ public class ShopService
     @Autowired
     private SessionStorage sessionStorage;
 
-    public List<Product> getProducts(boolean sortByName, boolean sortAscending, String filterBy)
-    {
-        if(sortByName)
-        {
-            if(sortAscending)
-                return productRepo.findByNameContainingIgnoreCaseOrderByNameAsc(filterBy);
-            else
-                return productRepo.findByNameContainingIgnoreCaseOrderByNameDesc(filterBy);
-        }
-        else
-        {
-            if(sortAscending)
-                return productRepo.findByNameContainingIgnoreCaseOrderByPriceAsc(filterBy);
-            else
-                return productRepo.findByNameContainingIgnoreCaseOrderByPriceDesc(filterBy);
-        }
-    }
 
     // Cart functions
     Cart getCart(HttpSession ses) {return sessionStorage.GetData(ses.getId());}

@@ -3,7 +3,9 @@ package StudyShop.controller;
 import java.util.List;
 
 import StudyShop.entity.Product;
+import StudyShop.entity.ProductEncounter;
 import StudyShop.repository.ProductRepoJpa;
+import StudyShop.service.ShopService;
 import StudyShop.session.SessionStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
+
 @Controller
 public class ShopController
 {
   @Autowired
   private ProductRepoJpa productRepo;
 
+  @Autowired
+  ShopService service;
   @Autowired
   private SessionStorage sessionStorage;
 
@@ -68,18 +73,51 @@ public class ShopController
   }
 
   @CrossOrigin(origins = "*")
-  @PostMapping("/addToWishList")
+  @PostMapping("/addToCart")
   @ResponseBody
   public void addProduct(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
   {
-    sessionStorage.GetData(session).AddProduct(productId);
+    service.addToCart(session, productId);
+  }
+    @GetMapping("/Cart")
+    public String Cart(){
+    return "Cart";
   }
 
   @CrossOrigin(origins = "*")
-  @GetMapping("/wishListCnt")
+  @DeleteMapping("/removeFromCart")
+  @ResponseBody
+  public void removeProduct(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
+  {
+    service.delFromCart(session, productId);
+  }
+
+  @CrossOrigin(origins = "*")
+  @DeleteMapping("/removeFromCartAll")
+  @ResponseBody
+  public void removeProductAll(@RequestParam(required = true, name = "id") Integer productId, HttpSession session)
+  {
+    service.delFromCartAll(session, productId);
+  }
+
+  @CrossOrigin(origins = "*")
+  @GetMapping("/CartCnt")
   @ResponseBody
   public String getProductsCnt(HttpSession session)
   {
-    return sessionStorage.GetData(session).GetProductsCount().toString();
+    return service.getCartCnt(session).toString();
+  }
+
+  @CrossOrigin(origins = "*")
+  @GetMapping("/CartCounts")
+  @ResponseBody
+  public ProductEncounter getProductsCounts(HttpSession session) {return service.getCartCounts(session);}
+
+  @CrossOrigin(origins = "*")
+  @GetMapping("/CartCost")
+  @ResponseBody
+  public String getProductsCost(HttpSession session)
+  {
+    return service.getCartCost(session).toString();
   }
 }

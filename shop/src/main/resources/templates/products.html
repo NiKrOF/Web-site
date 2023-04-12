@@ -33,7 +33,7 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a class="countOfItems" id="cntOfItems" onclick="toCartPage()">0</a></li>
 							</ul>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 									<div class="productinfo text-center">
 										<h2>[[${product.price}]]</h2>
 										<p>[[${product.name}]]</p>
-										<button onclick="addItem(${product.id})">+</button>
+										<button onclick="addItem(this.id)">+</button>
 									</div>
 								</div>
 							</div>
@@ -149,12 +149,13 @@
 			</div>
 		</div>
 	</footer>
-    <script src="../static/js/jquery.js"></script>
-	<script src="../static/js/bootstrap.min.js"></script>
-	<script src="../static/js/jquery.scrollUp.min.js"></script>
-	<script src="../static/js/price-range.js"></script>
-    <script src="../static/js/jquery.prettyPhoto.js"></script>
-    <script src="../static/js/main.js"></script>
+    <script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.scrollUp.min.js"></script>
+	<script src="../js/price-range.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/main.js"></script>
+	<script src="../js/scripts.js"></script>
     <script>
     function getCookie(name) {
         let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
